@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" layout:decorate="layout/main">
+<body>
+<div class="row" layout:fragment="content">
+	<div class="col-md-11 order-md-1">
+		<h4 class="mb-3">新增 Push notification</h4>
+		<span class="text-danger">除了有標記為"Optional"的欄位，其餘欄位皆為必填</span>
+		<hr class="mb-4">
+		<form class="needs-validation" novalidate>
+			<div class="row">
+				<div class="col-md-3 mb-3">
+					<h6 class="mb-3">發送平台</h6>
+					<div class="d-block my-3">
+						<div class="custom-control custom-radio">
+							<input id="allPlatform" name="platform" type="radio" class="custom-control-input" required>
+							<label class="custom-control-label" for="allPlatform">All</label>
+						</div>
+						<div class="custom-control custom-radio">
+							<input id="ios" name="platform" type="radio" class="custom-control-input" required>
+							<label class="custom-control-label" for="ios">iOS</label>
+						</div>
+						<div class="custom-control custom-radio">
+							<input id="android" name="platform" type="radio" class="custom-control-input" required>
+							<label class="custom-control-label" for="android">Android</label>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 mb-3">
+					<h6 class="mb-3">通知類型</h6>
+					<div class="d-block my-3">
+						<div class="custom-control custom-radio">
+							<input id="marketing" name="notiType" type="radio" class="custom-control-input" required>
+							<label class="custom-control-label" for="marketing">行銷活動</label>
+						</div>
+						<div class="custom-control custom-radio">
+							<input id="system" name="notiType" type="radio" class="custom-control-input" required>
+							<label class="custom-control-label" for="system">系統通知</label>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 mb-3">
+					<h6 class="mb-3">發送對象</h6>
+					<div class="d-block my-3">
+						<div class="custom-control custom-radio">
+							<input id="allUser" name="targetUser" type="radio" class="custom-control-input" required>
+							<label class="custom-control-label" for="allUser">All</label>
+						</div>
+						<div class="custom-control custom-radio">
+							<input id="specificUser" name="targetUser" type="radio" class="custom-control-input" required>
+							<label class="custom-control-label" for="specificUser" style="margin-bottom: 10px;">指定會員</label>
+							<input type="file" class="form-control-file" id="specificUserFile">
+							<span class="text-danger">請用逗號分隔帳號，ex. 0999777001,ogg@staff.pchome.co.th</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-3 mb-3">
+					<h6>預計發送時間-日期</h6>
+					<input type="date" class="form-control" id="sendDate">
+				</div>
+				<div class="col-md-2 mb-3">
+					<h6>預計發送時間-時</h6>
+					<select class="custom-select d-block w-100" id="sendHour">
+						<option selected>0</option>
+						<option>1</option>
+						<option>2</option>
+					</select>
+				</div>
+				<div class="col-md-2 mb-3">
+					<h6>預計發送時間-分</h6>
+					<select class="custom-select d-block w-100" id="sendMin">
+						<option selected>0</option>
+						<option>1</option>
+						<option>2</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row">&nbsp;</div>
+
+			<div class="row">
+				<div class="col-md-6 mb-3">
+					<h6>標題 in thailand</h6>
+					<input type="text" class="form-control" id="thTitle">
+				</div>
+				<div class="col-md-6 mb-3">
+					<h6>內容 in thailand</h6>
+					<textarea class="form-control" id="thBody" rows="3"></textarea>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6 mb-3">
+					<h6>標題 in chinese</h6>
+					<input type="text" class="form-control" id="chTitle">
+				</div>
+				<div class="col-md-6 mb-3">
+					<h6>內容 in chinese</h6>
+					<textarea class="form-control" id="chBody" rows="3"></textarea>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6 mb-3">
+					<h6>標題 in english</h6>
+					<input type="text" class="form-control" id="enTitle">
+				</div>
+				<div class="col-md-6 mb-3">
+					<h6>內容 in english</h6>
+					<textarea class="form-control" id="enBody" rows="3"></textarea>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6 mb-3">
+					<h6>連結</h6>
+					<input type="text" class="form-control" id="iosLink">
+					<span class="text-info">Optional</span>
+				</div>
+			</div>
+			<hr>
+
+			<div class="row">
+				<div class="col-md-3 mb-3"></div>
+				<div class="col-md-3 mb-3">
+					<button class="btn btn-danger btn-lg btn-block" type="button" onclick="history.back();">Save</button>
+				</div>
+				<div class="col-md-3 mb-3">
+					<button class="btn btn-primary btn-lg btn-block" type="button" onclick="history.back();">Back</button>
+				</div>
+				<div class="col-md-3 mb-3"></div>
+			</div>
+			<div class="row">&nbsp;</div>
+		</form>
+	</div>
+</div>
+</body>
+</html>

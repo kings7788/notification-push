@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" layout:decorate="layout/main">
+<body>
+<div layout:fragment="content">
+	<div class="row">
+		<div class="col-md-10 order-md-1">
+			<h4 class="mb-3">Push notification</h4>
+			<hr/>
+			<form class="needs-validation" novalidate>
+				<div class="row">
+					<div class="col-md-2 mb-3">
+						<h6>發送平台</h6>
+						<div class="d-block my-3">
+							<div class="custom-control custom-radio">
+								<input id="allPlatform" name="platform" type="radio" class="custom-control-input" required>
+								<label class="custom-control-label" for="allPlatform">All</label>
+							</div>
+							<div class="custom-control custom-radio">
+								<input id="ios" name="platform" type="radio" class="custom-control-input" required>
+								<label class="custom-control-label" for="ios">iOS</label>
+							</div>
+							<div class="custom-control custom-radio">
+								<input id="android" name="platform" type="radio" class="custom-control-input" required>
+								<label class="custom-control-label" for="android">Android</label>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-2 mb-3">
+						<h6>通知類型</h6>
+						<div class="d-block my-3">
+							<div class="custom-control custom-radio">
+								<input id="marketing" name="notiType" type="radio" class="custom-control-input" required checked>
+								<label class="custom-control-label" for="marketing">行銷活動</label>
+							</div>
+							<div class="custom-control custom-radio">
+								<input id="system" name="notiType" type="radio" class="custom-control-input" required>
+								<label class="custom-control-label" for="system">系統通知</label>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-2 mb-3">
+						<h6 class="mb-3">發送對象</h6>
+						<div class="d-block my-3">
+							<div class="custom-control custom-radio">
+								<input id="allUser" name="targetUser" type="radio" class="custom-control-input" required>
+								<label class="custom-control-label" for="allUser">All</label>
+							</div>
+							<div class="custom-control custom-radio">
+								<input id="specificUser" name="targetUser" type="radio" class="custom-control-input" required>
+								<label class="custom-control-label" for="specificUser">指定會員</label>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-2 mb-3">
+						<h6>狀態</h6>
+						<select class="custom-select d-block w-100" id="status">
+							<option value="" selected>All</option>
+							<option>新增</option>
+							<option>待審核</option>
+							<option>退回，請重新編緝</option>
+							<option>審核通過，待發送</option>
+							<option>已發送</option>
+							<option>已過期</option>
+							<option>已取消</option>
+							<option>審核通過，已取消</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-5 mb-3">
+						<h6>標題</h6>
+						<input type="text" class="form-control" id="title">
+					</div>
+
+					<div class="col-md-2 mb-3">
+						<h6>發送日期-開始</h6>
+						<input type="date" class="form-control" id="startDate">
+					</div>
+					<div class="col-md-2 mb-3">
+						<h6>發送日期-結束</h6>
+						<input type="date" class="form-control" id="endDate">
+					</div>
+					<div class="col-md-2 mb-3">
+						<label>&nbsp;</label>
+						<button type="submit" class="btn btn-danger form-control">查詢</button>
+					</div>
+				</div>
+			</form>
+			<hr class="mb-4">
+		</div>
+	</div>
+
+	<div class="col-md-4 mb-3">
+		<h6 style="display: inline-block; margin-right: 10px;">查詢結果共 5筆</h6>
+		<button class="btn btn-primary btn-sm" type="button" onclick="location.href='addpage'">新增 Push notification</button>
+	</div>
+	<div class="table-responsive">
+		<table class="table table-striped table-sm">
+			<thead>
+			<tr>
+				<th>#</th>
+				<th>標題</th>
+				<th>通知類型</th>
+				<th>發送平台</th>
+				<th>發送對象</th>
+				<th>發送時間</th>
+				<th>狀態</th>
+				<th>iOS發送數/成功/失敗</th>
+				<th>Android發送數/成功/失敗</th>
+				<th>新增者 / 審核者</th>
+				<th>功能</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>1</td>
+				<td>來來來.. 送你好康</td>
+				<td>行銷活動</td>
+				<td>All</td>
+				<td>All</td>
+				<td>2019-05-30 12:00</td>
+				<td>新增</td>
+				<td>0 / 0 / 0</td>
+				<td>0 / 0 / 0</td>
+				<td>
+					Orange<br/>2019-05-29 9:00
+				</td>
+				<td>
+					<a href="view">預覽</a> | <a href="editpage">編輯</a><br/>
+					<a href="javascript:confirm('確定要送審?');">送審</a> | <a href="javascript:confirm('確定要取消?');">取消</a><br/>
+				</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>告訴你，明天要網路維修哦!</td>
+				<td>系統通知</td>
+				<td>All</td>
+				<td>指定對象</td>
+				<td>2019-05-30 14:00</td>
+				<td>待審核</td>
+				<td>0 / 0 / 0</td>
+				<td>0 / 0 / 0</td>
+				<td>
+					Sherry<br/>2019-05-29 10:00
+				</td>
+				<td>
+					<a href="view">審核</a><br/>
+				</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>來來來.. 只送Apple用戶哦!</td>
+				<td>行銷活動</td>
+				<td>iOS</td>
+				<td>指定對象</td>
+				<td>2019-05-30 16:00</td>
+				<td>退回，請重新編緝</td>
+				<td>0 / 0 / 0</td>
+				<td>0 / 0 / 0</td>
+				<td>
+					Orange<br/>2019-05-29 9:00
+					<br/>Sherry<br/>2019-05-29 10:00
+				</td>
+				<td>
+					<a href="view">預覽</a> | <a href="editpage">編輯</a><br/>
+					<a href="javascript:confirm('確定要送審?');">送審</a> | <a href="javascript:confirm('確定要取消?');">取消</a><br/>
+				</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>來來來.. 只送Apple用戶哦!</td>
+				<td>行銷活動</td>
+				<td>iOS</td>
+				<td>All</td>
+				<td>2019-05-30 18:00</td>
+				<td>審核通過，待發送</td>
+				<td>0 / 0 / 0</td>
+				<td>0 / 0 / 0</td>
+				<td>
+					Orange<br/>2019-05-29 9:00
+					<br/>Sherry<br/>2019-05-29 10:00
+				</td>
+				<td>
+					<a href="view">檢視</a> | <a href="#" data-toggle="modal" data-target="#rejectModal">取消</a>
+				</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>來來來.. 只送你安卓</td>
+				<td>行銷活動</td>
+				<td>Android</td>
+				<td>All</td>
+				<td>2019-05-28 14:00</td>
+				<td>已發送</td>
+				<td>10000 / 9999 / 1</td>
+				<td>10000 / 10000 / 0</td>
+				<td>
+					Orange<br/>2019-05-29 9:00
+					<br/>Sherry<br/>2019-05-29 10:00
+				</td>
+				<td>
+					<a href="view">檢視</a>
+				</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>來來來.. 只送你安卓</td>
+				<td>行銷活動</td>
+				<td>Android</td>
+				<td>指定對象</td>
+				<td>2019-05-28 14:00</td>
+				<td>已過期</td>
+				<td>0 / 0 / 0</td>
+				<td>0 / 0 / 0</td>
+				<td>
+					Orange<br/>2019-05-29 9:00
+				</td>
+				<td>
+					<a href="view">檢視</a>
+				</td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>來來來.. 只送你安卓</td>
+				<td>行銷活動</td>
+				<td>Android</td>
+				<td>All</td>
+				<td>2019-05-28 14:00</td>
+				<td>已取消</td>
+				<td>0 / 0 / 0</td>
+				<td>0 / 0 / 0</td>
+				<td>
+					Orange<br/>2019-05-29 9:00
+				</td>
+				<td>
+					<a href="view">檢視</a>
+				</td>
+			</tr>
+			<tr>
+				<td>8</td>
+				<td>來來來.. 只送你安卓</td>
+				<td>行銷活動</td>
+				<td>Android</td>
+				<td>All</td>
+				<td>2019-05-28 14:00</td>
+				<td>審核通過，已取消</td>
+				<td>0 / 0 / 0</td>
+				<td>0 / 0 / 0</td>
+				<td>
+					Orange<br/>2019-05-29 9:00
+					<br/>Sherry<br/>2019-05-29 10:00
+				</td>
+				<td>
+					<a href="view">檢視</a>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="row">
+		<div class="col-md-6 mb-3">
+		</div>
+		<div class="col-md-3 mb-3">
+			<a href="javascript:void(0);">1</a> | <a href="javascript:void(0);">2</a>
+		</div>
+	</div>
+
+	<div id="pushList"></div>
+
+	<script th:inline="javascript">
+		$("#pushList").datagrid({
+			url: "search/json",
+			method: "get",
+			emptyMsg: "Data not found.",
+			singleSelect: true,
+			pagination: true,
+			rownumbers: true,
+			pageNumber: 1,
+			pageSize: 20,
+			pageList: [20],
+			nowrap: true,
+			columns: [
+				[
+					{field: "title", title: "標題", width: 250},
+					{field: "notiType", title: "通知類型", width: 100},
+					{field: "platform", title: "發送平台", width: 100},
+					{field: "target", title: "發送對象", width: 100},
+					{field: "sendDate", title: "發送時間", width: 100},
+					{field: "status", title: "狀態", width: 100},
+					{field: "ios", title: "iOS發送數/成功/失敗", width: 200},
+					{field: "android", title: "Android發送數/成功/失敗", width: 200},
+					{field: "handler", title: "新增者 / 審核者", width: 200},
+					{field: "pushId", title: "功能", width: 200,
+						formatter: function(value, row, index){
+							var btnHtml = "<a href='view/" + value + "' class='btn btn-link btn-sm'>預覽</a>";
+							btnHtml += " | <a href='editpage/" + value + "' class='btn btn-link btn-sm'>編輯</a>";
+							btnHtml += "<br/><a href='submit/" + value + "' class='btn btn-link btn-sm'>送審</a>";
+							btnHtml += " | <a href='cancel/" + value + "' class='btn btn-link btn-sm'>取消</a>";
+							return btnHtml;
+						}
+					}
+				]
+			]
+		});
+	</script>
+</div>
+</body>
+</html>

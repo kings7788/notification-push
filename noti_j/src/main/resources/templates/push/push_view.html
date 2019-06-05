@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" layout:decorate="layout/main">
+<body>
+<div class="row" layout:fragment="content">
+	<div class="col-md-10 order-md-1">
+		<h4 class="mb-3">檢視 Push notification</h4>
+		<hr class="mb-4">
+		<form class="needs-validation" novalidate>
+			<div class="row">
+				<div class="col-md-6 mb-3">
+					<h6>預覽訊息</h6>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2 mb-3">
+					<button class="btn btn-primary btn-block" type="button" onclick="history.back();">Back</button>
+				</div>
+				<div class="col-md-2 mb-3">
+					<button class="btn btn-danger btn-block" type="button" onclick="if(confirm('確定要發送?')) history.back();">發送</button>
+				</div>
+				<div class="col-md-6 mb-3">
+					<h6>測試對象</h6>
+					<textarea class="form-control" id="testUser" rows="5"></textarea>
+					<span class="text-danger">請用逗號分隔帳號，ex. 0999777001,ogg@staff.pchome.co.th</span>
+				</div>
+			</div>
+			<hr/>
+
+			<div class="row">
+				<div class="col-md-6 mb-3">
+					<h6>審核</h6>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2 mb-3">
+					<button class="btn btn-danger btn-block" type="button" onclick="if(confirm('確定要通過? 通過後會立即發送')) history.back();">審核通過</button>
+				</div>
+				<div class="col-md-2 mb-3">
+					<button class="btn btn-primary btn-block" type="button" onclick="if(confirm('確定要退回?')) history.back();">審核退回</button>
+				</div>
+				<div class="col-md-6 mb-3">
+					<h6>退回原因</h6>
+					<textarea class="form-control" id="rejectReason" rows="5"></textarea>
+				</div>
+			</div>
+			<hr/>
+
+			<div class="row">
+				<div class="col-md-6 mb-3">
+					<h6>詳細資料</h6>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 mb-3">
+					<label>狀態</label>
+					<input type="text" class="form-control" id="status" value="待審核" readonly>
+				</div>
+				<div class="col-md-3 mb-3">
+					<label>iOS發送數/成功/失敗</label>
+					<input type="text" class="form-control" id="iosReport" value="0 / 0 / 0" readonly>
+				</div>
+				<div class="col-md-3 mb-3">
+					<label>Android發送數/成功/失敗</label>
+					<input type="text" class="form-control" id="androidReport" value="0 / 0 / 0" readonly>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-3 mb-3">
+					<label>發送平台</label>
+					<input type="text" class="form-control" id="notiPlatform" value="All" readonly>
+				</div>
+				<div class="col-md-3 mb-3">
+					<label>通知類型</label>
+					<input type="text" class="form-control" id="notiType" value="行銷活動" readonly>
+				</div>
+				<div class="col-md-3 mb-3">
+					<label>發送對象</label>
+					<button class="btn btn-outline-info btn-block" type="button" onclick="location.href='view_target_user.html';">指定對象</button>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-3 mb-3">
+					<label>預計發送日期</label>
+					<input type="date" class="form-control" id="sendDate" value="2019-05-30" readonly>
+				</div>
+				<div class="col-md-3 mb-3">
+					<label>預計發送時間-時</label>
+					<input type="text" class="form-control" id="sendHour" value="14" readonly>
+				</div>
+				<div class="col-md-3 mb-3">
+					<label>預計發送時間-分</label>
+					<input type="text" class="form-control" id="sendMin" value="0" readonly>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6 mb-3">
+					<label>標題 in thailand</label>
+					<input type="text" class="form-control" id="thTitle" value="來來來.. 送你好康" readonly>
+				</div>
+				<div class="col-md-6 mb-3">
+					<label>內容 in thailand</label>
+					<textarea class="form-control" id="thBody" rows="3" readonly>送送送</textarea>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6 mb-3">
+					<label>標題 in chinese</label>
+					<input type="text" class="form-control" id="chTitle" value="come come come.. Send gift to you" readonly>
+				</div>
+				<div class="col-md-6 mb-3">
+					<label for="chBody">內容 in chinese</label>
+					<textarea class="form-control" id="chBody" rows="3" readonly>送送送</textarea>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6 mb-3">
+					<label>標題 in english</label>
+					<input type="text" class="form-control" id="enTitle" value="來來來.. 送你好康" readonly>
+				</div>
+				<div class="col-md-6 mb-3">
+					<label>內容 in english</label>
+					<textarea class="form-control" id="enBody" rows="3" readonly>送送送</textarea>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6 mb-3">
+					<label>連結</label>
+					<input type="text" class="form-control" id="iosLink" value="https://xxxxxxx" readonly>
+				</div>
+			</div>
+
+			<hr>
+			<div class="row">
+				<div class="col-md-4 mb-3"></div>
+				<div class="col-md-4 mb-3">
+					<button class="btn btn-primary btn-lg btn-block" type="button" onclick="history.back();">Back</button>
+				</div>
+			</div>
+			<div class="row">&nbsp;</div>
+		</form>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" layout:decorate="layout/main">
+<body>
+<div class="row" layout:fragment="content">
+	<div class="col-md-6 order-md-1">
+		<h4 class="mb-3">指定對象</h4>
+		<hr class="mb-4">
+		<form class="needs-validation" novalidate>
+			<div class="row">
+				<div class="col-md-2 mb-3"></div>
+				<div class="col-md-8 mb-3">
+					<textarea class="form-control" id="targetUser" rows="25" readonly>0999777111,ogg@staff.pchome.co.th,0999777222</textarea>
+				</div>
+			</div>
+			<hr>
+
+			<div class="row">
+				<div class="col-md-4 mb-3"></div>
+				<div class="col-md-4 mb-3">
+					<button class="btn btn-primary btn-lg btn-block" type="button" onclick="history.back();">Back</button>
+				</div>
+			</div>
+			<div class="row">&nbsp;</div>
+		</form>
+	</div>
+</div>
+</body>
+</html>
